@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Analytics Dashboard</title>
+    <style>
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+            background: #f4f6f8;
+            color: #1f2937;
+        }
+
+        header {
+            padding: 24px 32px;
+            background: #111827;
+            color: white;
+        }
+
+        header h1 {
+            margin: 0 0 6px;
+        }
+
+        header p {
+            margin: 0;
+            opacity: 0.7;
+        }
+
+        main {
+            max-width: 1100px;
+            margin: 30px auto;
+            padding: 0 20px;
+        }
+
+        .stats {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 18px;
+        }
+
+        .card {
+            padding: 22px;
+            background: white;
+            border-radius: 14px;
+            box-shadow: 0 4px 16px rgba(0, 0, 0, 0.07);
+        }
+
+        .card span {
+            color: #6b7280;
+            font-size: 14px;
+        }
+
+        .card strong {
+            display: block;
+            margin-top: 8px;
+            font-size: 30px;
+        }
+
+        .panel {
+            margin-top: 24px;
+            padding: 24px;
+            background: white;
+            border-radius: 14px;
+            box-shadow: 0 4px 16px rgba(0, 0, 0, 0.07);
+        }
+
+        .bar {
+            margin: 18px 0;
+        }
+
+        .bar-label {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 7px;
+        }
+
+        .track {
+            height: 12px;
+            background: #e5e7eb;
+            border-radius: 10px;
+            overflow: hidden;
+        }
+
+        .fill {
+            height: 100%;
+            background: #2563eb;
+            transition: width 0.5s;
+        }
+
+        button {
+            margin-top: 10px;
+            padding: 11px 18px;
+            border: 0;
+            border-radius: 8px;
+            background: #2563eb;
+            color: white;
+            cursor: pointer;
+            font-size: 15px;
+        }
+
+        button:hover {
+            background: #1d4ed8;
+        }
+
+        @media (max-width: 800px) {
+            .stats {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        @media (max-width: 500px) {
+            .stats {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Analytics Dashboard</h1>
+        <p>Real-time project performance</p>
+    </header>
+
+    <main>
+        <section class="stats">
+            <div class="card">
+                <span>Users</span>
+                <strong id="users">1248</strong>
+            </div>
+
+            <div class="card">
+                <span>Revenue</span>
+                <strong id="revenue">$8420</strong>
+            </div>
+
+            <div class="card">
+                <span>Orders</span>
+                <strong id="orders">326</strong>
+            </div>
+
+            <div class="card">
+                <span>Conversion</span>
+                <strong id="conversion">7.8%</strong>
+            </div>
+        </section>
+
+        <section class="panel">
+            <h2>Performance</h2>
+
+            <div class="bar">
+                <div class="bar-label">
+                    <span>Marketing</span>
+                    <span>82%</span>
+                </div>
+                <div class="track">
+                    <div class="fill" style="width: 82%"></div>
+                </div>
+            </div>
+
+            <div class="bar">
+                <div class="bar-label">
+                    <span>Development</span>
+                    <span>94%</span>
+                </div>
+                <div class="track">
+                    <div class="fill" style="width: 94%"></div>
+                </div>
+            </div>
+
+            <div class="bar">
+                <div class="bar-label">
+                    <span>Support</span>
+                    <span>68%</span>
+                </div>
+                <div class="track">
+                    <div class="fill" style="width: 68%"></div>
+                </div>
+            </div>
+
+            <button onclick="updateStats()">Update Statistics</button>
+        </section>
+    </main>
+
+    <script>
+        function updateStats() {
+            document.getElementById("users").textContent =
+                Math.floor(Math.random() * 1000 + 1000);
+
+            document.getElementById("revenue").textContent =
+                "$" + Math.floor(Math.random() * 5000 + 5000);
+
+            document.getElementById("orders").textContent =
+                Math.floor(Math.random() * 300 + 200);
+
+            document.getElementById("conversion").textContent =
+                (Math.random() * 5 + 5).toFixed(1) + "%";
+        }
+    </script>
+</body>
+</html>
